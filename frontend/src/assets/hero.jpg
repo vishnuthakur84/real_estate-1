@@ -1,0 +1,17 @@
+import React from "react";
+import heroImage from "../assets/hero.jpg"; // Import the image
+
+const HeroSection = () => {
+  return (
+    <section className="hero">
+      <img src={heroImage} alt="Dream Home in India" className="hero-image" />
+      <div className="hero-text">
+        <h1>Find Your New Dream Home</h1>
+        <p>Discover the best homes in India</p>
+        <button className="explore-btn">Explore Now</button>
+      </div>
+    </section>
+  );
+};
+
+export default HeroSection;

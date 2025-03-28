@@ -1,0 +1,78 @@
+.HeroSection {
+    background-image: url("https://thumbs.dreamstime.com/b/modern-house-wood-concrete-exterior-generated-using-ai-363459511.jpg");
+    height: 580px;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 50px;
+}
+
+.hero-content {
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.HeroSection p {
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 300;
+    color: black;
+    max-width: 600px;
+}
+
+.search-bar {
+    margin-top: 20px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.search-field {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+
+}
+
+.option {
+    font-size: 16px;
+    font-weight: lighter;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 30%;
+}
+
+.option label {
+    margin-bottom: 5px;
+}
+
+.option select, .option input {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding: 8px;
+    width: 100%;
+}
+
+.search-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}

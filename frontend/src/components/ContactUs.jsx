@@ -10,6 +10,8 @@ const ContactUs = () => {
     description: "",
   });
 
+  const [message, setMessage] = useState({ type: "", text: "" });
+
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData({
@@ -18,35 +20,56 @@ const ContactUs = () => {
     });
   };
 
+  const validateForm = () => {
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone || !formData.description) {
+      setMessage({ type: "error", text: "All fields are required!" });
+      return false;
+    }
+    if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      setMessage({ type: "error", text: "Please enter a valid email!" });
+      return false;
+    }
+    if (!/^\d{10}$/.test(formData.phone)) {
+      setMessage({ type: "error", text: "Phone number must be 10 digits!" });
+      return false;
+    }
+    return true;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
+    if (!validateForm()) return;
+
     try {
-      const response = await fetch('http://127.0.0.1:5000/contact-us', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+      setMessage({ type: "success", text: "Message sent successfully!" });
+
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        description: "",
       });
-      const data = await response.json();
-      console.log(data.message);
-      alert("Contact request submitted successfully!");
     } catch (error) {
-      console.error("Error submitting contact request:", error);
-      alert("Failed to submit contact request.");
+      setMessage({ type: "error", text: "Failed to send message. Try again!" });
     }
   };
-  
+
   return (
     <div className="ContactUs">
       <div className="ContactUs-content">
         <h2>Contact Us</h2>
-        <p>
-          Discover the difference, where expertise meets excellence in real
-          estate.<br />
-          Let's embark on this exciting journey together.
-        </p>
+        <p>We'd love to hear from you! Reach out for any inquiries or assistance.</p>
       </div>
+
       <div className="form-container">
+        {message.text && (
+          <div className={message.type === "success" ? "success-message" : "error-message"}>
+            {message.text}
+          </div>
+        )}
+
         <form className="form" onSubmit={handleSubmit}>
           <div className="row">
             <div className="input-group">
@@ -93,14 +116,14 @@ const ContactUs = () => {
           <div className="input-group full-width">
             <textarea
               id="description"
-              placeholder="Description"
+              placeholder="Message..."
               rows="4"
               value={formData.description}
               onChange={handleChange}
             />
           </div>
 
-          <button type="submit">Submit</button>
+          <button type="submit">Send Message</button>
         </form>
       </div>
     </div>
@@ -108,4 +131,3 @@ const ContactUs = () => {
 };
 
 export default ContactUs;
-

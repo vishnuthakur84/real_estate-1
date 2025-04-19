@@ -1,37 +1,70 @@
-.Aboutus{
-    background-color: hsla(0, 0%, 94%, 0.638);
+.aboutus-container {
+    background-color: #f7f7f7;
+    padding: 60px 30px;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 30px 50px;
-}
-
-.Aboutus-content h2{
-    font-size: 30px;
-    color: blue;
-    margin-top: 25px;
-}
-
-.Aboutus-content h3{
-    font-size: 25px;
-    margin-top: 25px;
-}
-
-.Aboutus-content p{
-    margin-top: 18px;
-}
-
-.Aboutus-content .MoreInfo{
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .aboutus-content {
+    max-width: 900px;
+    text-align: center;
+  }
+  
+  .aboutus-content h1 {
+    font-size: 36px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+  
+  .aboutus-content p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 40px;
+  }
+  
+  .aboutus-stats {
     display: flex;
-    margin-top: 18px;
-    justify-content: space-between;
-    color: blue;
-}
-
-.Aboutus-content .MoreInfoo{
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    font-size: 32px;
-}
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+  }
+  
+  .stat-box {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 220px;
+    transition: transform 0.3s ease;
+  }
+  
+  .stat-box:hover {
+    transform: translateY(-5px);
+  }
+  
+  .stat-box .icon {
+    font-size: 40px;
+    color: #007bff;
+    margin-bottom: 10px;
+  }
+  
+  .stat-box h4 {
+    font-size: 28px;
+    margin: 5px 0;
+    color: #333;
+  }
+  
+  .stat-box p {
+    font-size: 16px;
+    color: #777;
+  }
+  
+  .aboutus-loading,
+  .aboutus-error {
+    text-align: center;
+    font-size: 18px;
+    color: #888;
+    padding: 50px;
+  }
+  
